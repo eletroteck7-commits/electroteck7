@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eletrotec7M - Eletricidade Geral e Industrial em Santana do Livramento</title>
+    <style>
+        :root {
+            --primary: #00468b;
+            --accent: #ffb703;
+            --dark: #1d2d44;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header e Navegação */
+        header {
+            background-color: var(--dark);
+            color: white;
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--accent);
+            text-transform: uppercase;
+        }
+
+        .logo span {
+            color: white;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Banner */
+        .hero {
+            background: linear-gradient(rgba(0, 30, 60, 0.85), rgba(0, 30, 60, 0.85)), url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 5rem 1rem;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .btn {
+            background-color: var(--accent);
+            color: var(--dark);
+            padding: 0.8rem 1.8rem;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #e0a000;
+        }
+
+        /* Seções Gerais */
+        section {
+            padding: 4rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            display: block;
+            width: 50%;
+            height: 3px;
+            background: var(--accent);
+            margin: 0.5rem auto 0;
+        }
+
+        /* Cards de Serviços */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--primary);
+        }
+
+        .card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .card ul {
+            list-style-position: inside;
+            color: var(--gray);
+        }
+
+        .card ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Tabela de Preços */
+        .price-table-container {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 1rem 1.5rem;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f4f7;
+        }
+
+        .badge {
+            background-color: #e1f5fe;
+            color: #0288d1;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+
+        /* Agendamento e Formulário */
+        .booking-container {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            nav a {
+                margin: 0 0.8rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cabeçalho -->
+    <header>
+        <div class="logo">Eletrotec<span>7M</span></div>
+        <nav>
+            <a href="#servicos">Serviços</a>
+            <a href="#precos">Valores</a>
+            <a href="#agendamento">Agendar Horário</a>
+        </nav>
+    </header>
+
+    <!-- Banner Principal -->
+    <div class="hero">
+        <h1>Eletrotec7M</h1>
+        <p>Soluções completas em Eletricidade Geral, Residencial e Industrial em Santana do Livramento - RS.</p>
+        <a href="#agendamento" class="btn">Agendar Atendimento</a>
+    </div>
+
+    <!-- Seção de Serviços -->
+    <section id="servicos">
+        <div class="section-title">
+            <h2>Nossos Serviços</h2>
+        </div>
+        <div class="services-grid">
+            <div class="card">
+                <h3>Eletricidade Residencial</h3>
+                <ul>
+                    <li>Instalação e troca de tomadas/disjuntores</li>
+                    <li>Projetos de iluminação em LED e lustres</li>
+                    <li>Instalação de chuveiros e ilhas de cozinha</li>
+                    <li>Revisão de quadros de distribuição (QDG)</li>
+                    <li>Localização de curtos-circuitos</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Eletricidade Industrial</h3>
+                <ul>
+                    <li>Manutenção de painéis de comando elétrico</li>
+                    <li>Montagem e infraestrutura de leitos e eletrocalhas</li>
+                    <li>Instalações trifásicas e motores industriais</li>
+                    <li>Correção de fator de potência</li>
+                    <li>Projetos de aterramento SPDA</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Comercial & Manutenção</h3>
+                <ul>
+                    <li>Projetos elétricos para lojas e escritórios</li>
+                    <li>Instalação de refletores e iluminação externa</li>
+                    <li>Manutenção preventiva e corretiva</li>
+                    <li>Laudos elétricos e adequação às normas (NR-10)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Preços -->
+    <section id="precos">
+        <div class="section-title">
+            <h2>Tabela de Preços Estimados</h2>
+        </div>
+        <div class="price-table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Serviço</th>
+                        <th>Categoria</th>
+                        <th>Faixa de Preço (Mão de Obra)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Visita Técnica / Diagnóstico Inicial</td>
+                        <td><span class="badge">Geral</span></td>
+                        <td>R$ 80,00 - R$ 120,00</td>
+                    </tr>
+                    <tr>
+                        <td>Instalação/Troca de Tomada ou Interruptor</td>
+                        <td><span class="badge">Residencial</span></td>
+                        <td>R$ 50,00 - R$ 90,00 por ponto</td>
+                    </tr>
+                    <tr>
+                        <td>Instalação de Chuveiro Elétrico com fiação dedicada</td>
+                        <td><span class="badge">Residencial</span></td>
+                        <td>R$ 120,00 - R$ 200,00</td>
+                    </tr>
+                    <tr>
+                        <td>Troca de Disjuntor no Quadro</td>
+                        <td><span class="badge">Residencial</span></td>
+                        <td>R$ 90,00 - R$ 150,00</td>
+                    </tr>
+                    <tr>
+                        <td>Revisão / Montagem de Quadro Elétrico (QDG)</td>
+                        <td><span class="badge">Residencial/Comercial</span></td>
+                        <td>R$ 450,00 - R$ 1.200,00</td>
+                    </tr>
+                    <tr>
+                        <td>Manutenção em Painéis Industriais / Motores</td>
+                        <td><span class="badge">Industrial</span></td>
+                        <td>Sob orçamento (Hora técnica a partir de R$ 150,00)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--gray); text-align: center;">
+            * Nota: Os preços são estimativas para Santana do Livramento e região. Valores finais dependem da complexidade e dos materiais necessários.
+        </p>
+    </section>
+
+    <!-- Seção de Agendamento -->
+    <section id="agendamento">
+        <div class="section-title">
+            <h2>Agende seu Horário</h2>
+        </div>
+        <div class="booking-container">
+            <form id="bookingForm">
+                <div class="form-group">
+                    <label for="nome">Nome Completo:</label>
+                    <input type="text" id="nome" required placeholder="Digite seu nome">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="telefone">Telefone / WhatsApp:</label>
+                        <input type="tel" id="telefone" required placeholder="(55) 99999-9999">
+                    </div>
+                    <div class="form-group">
+                        <label for="tipoServico">Tipo de Serviço:</label>
+                        <select id="tipoServico" required>
+                            <option value="">Selecione...</option>
+                            <option value="Residencial">Elétrica Residencial</option>
+                            <option value="Industrial">Elétrica Industrial</option>
+                            <option value="Comercial">Elétrica Comercial</option>
+                            <option value="Urgência/Reparo">Emergência / Curto-Circuito</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="data">Data Preferencial:</label>
+                        <input type="date" id="data" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="horario">Horário Preferencial:</label>
+                        <select id="horario" required>
+                            <option value="">Selecione...</option>
+                            <option value="Manhã (08h - 12h)">Manhã (08h - 12h)</option>
+                            <option value="Tarde (13h30 - 18h)">Tarde (13h30 - 18h)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="detalhes">Detalhes do Serviço / Endereço em Santana do Livramento:</label>
+                    <textarea id="detalhes" rows="4" placeholder="Descreva brevemente o que precisa ser feito e informe seu bairro..."></textarea>
+                </div>
+
+                <button type="submit" class="btn" style="width: 100%;">Confirmar Agendamento via WhatsApp</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <p><strong>Eletrotec7M</strong> - Serviços Elétricos Gerais e Industriais</p>
+        <p>Santana do Livramento - Rio Grande do Sul</p>
+        <p style="margin-top: 1rem;">© 2026 Eletrotec7M. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Script para envio do Agendamento ao WhatsApp -->
+    <script>
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Insira o número do seu WhatsApp aqui (DDD 55 + Número)
+            const numeroWhatsApp = "5555999999999"; 
+
+            const nome = document.getElementById('nome').value;
+            const telefone = document.getElementById('telefone').value;
+            const tipoServico = document.getElementById('tipoServico').value;
+            const data = document.getElementById('data').value;
+            const horario = document.getElementById('horario').value;
+            const detalhes = document.getElementById('detalhes').value;
+
+            // Formatação da mensagem
+            const mensagem = `*Novo Agendamento - Eletrotec7M*%0A%0A` +
+                `*Nome:* ${nome}%0A` +
+                `*Telefone:* ${telefone}%0A` +
+                `*Tipo de Serviço:* ${tipoServico}%0A` +
+                `*Data Pretendida:* ${data}%0A` +
+                `*Horário Pretendido:* ${horario}%0A` +
+                `*Detalhes/Endereço:* ${detalhes}`;
+
+            // Redireciona para o WhatsApp com a mensagem pronta
+            window.open(`https://wa.me/${numeroWhatsApp}?text=${mensagem}`, '_blank');
+        });
+    </script>
+</body>
+</html>
